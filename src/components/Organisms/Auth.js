@@ -6,9 +6,9 @@ const Auth = ({ onSubmit, email, password, onChange, newAccount, error, toggleAc
   return (
     <Container>
       <Form onSubmit={onSubmit} email={email} password={password} onChange={onChange} newAccount={newAccount} error={error} />
-      <span onClick={toggleAccount}>
+      <Toggle onClick={toggleAccount}>
         {newAccount ? "Sign In" : "Create Account"}
-      </span>
+      </Toggle>
       <div>
         <Button onClick={onSocialClick} name="google">
           Continue with Google
@@ -33,4 +33,11 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+`;
+
+const Toggle = styled.span`
+cursor: pointer;
+margin: 10px 0px;
+color: #0095f6;
+font-weight: 600;
 `;

@@ -1,6 +1,7 @@
-import AppTemplate from "components/Templates/AppTemplate";
+import AppRouter from "components/Router";
 import { authService } from "fbase";
 import { useEffect, useState } from "react";
+import { AppFooter } from "styles/AppStyle";
 
 function App() {
   const [init, setInit] = useState(false);
@@ -17,7 +18,12 @@ function App() {
     });
   }, []);
 
-  return <AppTemplate init={init} isLoggedIn={isLoggedIn} />;
+  return (
+  <>
+    {init ? <AppRouter isLoggedIn={isLoggedIn} /> : "Initializing..."}
+    <AppFooter>&copy; {new Date().getFullYear()} Nwitter</AppFooter>
+  </>
+  )
 }
 
 export default App;
